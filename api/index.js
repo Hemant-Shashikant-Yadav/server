@@ -80,5 +80,16 @@ app.post("/api/auth/login", async (req, res) => {
 // Use the email route
 app.use("/api/email", emailRoutes);
 
+let latestSensorValue = 0;
+
+app.post("/api/sensor", (req, res) => {
+  latestSensorValue = req.body.value;
+  res.status(200).json({ message: "Sensor value received" });
+});
+
+app.get("/api/sensor", (req, res) => {
+  res.json({ value: latestSensorValue });
+});
+
 // Export as a serverless function
 export default app;
