@@ -18,6 +18,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "http://localhost:5175",
       "https://flood-ditection-project.vercel.app",
     ], // Add your frontend's local and deployed URLs
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
